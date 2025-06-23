@@ -12,12 +12,10 @@ function App() {
   return (
     <Router>
       <div className="app-layout">
-        {/* Static Sidebar */}
         <aside className="sidebar">
           <Sidebar />
         </aside>
 
-        {/* Scrollable Main Content */}
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Hero />} />
@@ -31,5 +29,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;

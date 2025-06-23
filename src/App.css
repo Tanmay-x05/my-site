@@ -1,10 +1,11 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden; /* Prevent page scroll */
+  overflow: hidden;
 }
 
-.app-container {
+/* === Layout Container === */
+.app-layout {
   display: flex;
   height: 100vh;
   overflow: hidden;
@@ -12,7 +13,7 @@ body {
 
 /* === SIDEBAR === */
 .sidebar {
-  position: fixed;              /* Fixed sidebar */
+  position: fixed;
   top: 0;
   left: 0;
   width: 260px;
@@ -24,7 +25,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  overflow: hidden;             /* Prevent sidebar scroll */
+  overflow: hidden;
+  z-index: 1000;
 }
 
 .sidebar-img {
@@ -77,7 +79,7 @@ footer {
 
 /* === MAIN CONTENT === */
 .main-content {
-  margin-left: 260px;             /* Reserve space for sidebar */
+  margin-left: 260px;
   flex: 1;
   height: 100vh;
   overflow-y: auto;
@@ -99,7 +101,8 @@ footer {
 
 .image-container {
   position: relative;
-  width: 1020px;
+  width: 100%;
+  max-width: 1020px;
   height: 600px;
   border-radius: 0px;
   overflow: hidden;
@@ -174,18 +177,29 @@ footer {
   transform: scale(1.05);
 }
 
-/* === Responsive === */
-@media (max-width: 850px) {
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .main-content {
+    margin-left: 220px;
+    padding: 20px;
+  }
+
   .image-container {
-    width: 90vw;
-    height: 90vw;
+    height: 400px;
   }
 
   .overlay-text {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
     padding: 20px;
+    max-width: 90%;
+    left: 5%;
+    font-size: 14px;
   }
 
   .overlay-text h1 {
@@ -195,15 +209,5 @@ footer {
   .btn-know-more {
     padding: 8px 16px;
     font-size: 14px;
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
-
-  .sidebar {
-    position: static;
-    width: 100%;
-    height: auto;
   }
 }
