@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import "./ProjectSection.css";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const projects = [
   {
@@ -46,6 +48,21 @@ Developed triggers for validation and logging; provided query-based insights int
   },
 ];
 
+// Framer Motion Variants
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const ProjectSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -55,25 +72,59 @@ const ProjectSection = () => {
 
   return (
     <section className="project-section" id="projects">
-      <h2>Projects</h2>
-      {projects.map((project, index) => (
-        <div key={index} className="project-item">
-          <div className="project-title" onClick={() => toggle(index)}>
-            <span>{project.title}</span>
-            <span className="toggle-icon">{activeIndex === index ? "−" : "+"}</span>
-          </div>
-          {activeIndex === index && (
-            <div className="project-summary">
-              <p><strong>Objective:</strong><br />{project.objective}</p>
-              <p><strong>Tools & Technologies Used:</strong><br />{project.tools}</p>
-              <p><strong>Results / Outcome:</strong><br />{project.results}</p>
-              <a href={project.github} target="_blank" rel="noreferrer" className="github-link">
-                🔗 GitHub Repository
-              </a>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        Projects
+      </motion.h2>
+
+      <motion.div
+        className="project-list"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="project-item"
+            variants={itemVariants}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="project-title" onClick={() => toggle(index)}>
+              <div className="title-text">{project.title}</div>
+              <div
+                className={`toggle-icon ${activeIndex === index ? "rotated" : ""}`}
+              >
+                {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+              </div>
             </div>
-          )}
-        </div>
-      ))}
+            {activeIndex === index && (
+              <div className="project-summary">
+                <p>
+                  <strong>Objective:</strong><br />{project.objective}
+                </p>
+                <p>
+                  <strong>Tools & Technologies Used:</strong><br />{project.tools}
+                </p>
+                <p>
+                  <strong>Results / Outcome:</strong><br />{project.results}
+                </p>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="github-link"
+                >
+                  🔗 GitHub Repository
+                </a>
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 };

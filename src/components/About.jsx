@@ -1,27 +1,43 @@
+import { motion } from "framer-motion";
+
 const About = () => {
   return (
     <section className="about-section" id="about">
-      <h2>About Me</h2>
+      <div className="about-overlay">
+        <motion.h2
+          className="about-heading"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          About Me
+        </motion.h2>
 
-      <p>
-        Hi, I’m <strong>Tanmay Singh</strong>, a Computer Science undergraduate with a strong
-        passion for <strong>frontend development</strong>, <strong>AI</strong>, and building clean,
-        user-centric digital solutions. I love working with technologies like <strong>React</strong>,
-        <strong> Python</strong>, and <strong>SQL</strong> to turn ideas into intuitive,
-        high-performance applications.
-      </p>
-
-      <p>
-        Outside of academics, I’m a committed <strong>football player</strong> and athlete — a
-        lifestyle that’s taught me discipline, strategic thinking, and resilience. I’m also actively
-        involved in various <strong>technical and cultural student communities</strong>, where I
-        enjoy collaborating, learning, and taking part in creative problem-solving.
-      </p>
-
-      <p>
-        Whether on the field or in code, I’m always driven by curiosity, teamwork, and the desire
-        to create meaningful impact.
-      </p>
+        <motion.div
+          className="about-text full-width"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <p>
+            Hi, I’m <strong>Tanmay Singh</strong>, a Computer Science undergraduate passionate
+            about <strong>frontend development</strong>, <strong>AI</strong>, and crafting
+            user-friendly solutions.
+          </p>
+          <p>
+            I enjoy working with <strong>React</strong>, <strong>Python</strong>, and{" "}
+            <strong>SQL</strong> to build fast, responsive web applications.
+          </p>
+          <p>
+            Outside tech, I’m a dedicated <strong>footballer</strong> and active participant in{" "}
+            <strong>technical and cultural societies</strong>.
+          </p>
+          <p>
+            I value curiosity, collaboration, and turning ideas into impact — whether it’s in code
+            or on the field.
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 };
