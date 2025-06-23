@@ -1,4 +1,4 @@
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -11,22 +11,22 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="app-container">
-        {/* Sidebar is rendered once and persists across routes */}
-        <Sidebar />
+      <div className="app-layout">
+        {/* Static Sidebar */}
+        <aside className="sidebar">
+          <Sidebar />
+        </aside>
 
-        {/* Only this section changes with route */}
-        <div className="main-content">
+        {/* Scrollable Main Content */}
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<ProjectSection />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/resume" element={<ResumePage />} />
-            <Route path="/gallery" element={<Gallery />} />
-
           </Routes>
-        </div>
+        </main>
       </div>
     </Router>
   );
