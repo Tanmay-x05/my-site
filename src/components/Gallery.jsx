@@ -1,9 +1,9 @@
 const Gallery = () => {
   const images = [
-    "/images/photo-1.jpg",
-    "/images/photo-2.jpg",
-    "/images/photo-3.jpg",
-    "/images/photo-4.jpeg",
+    "images/photo-1.jpg",
+    "images/photo-2.jpg",
+    "images/photo-3.jpg",
+    "images/photo-4.jpeg",
     // Add more images here if needed
   ];
 

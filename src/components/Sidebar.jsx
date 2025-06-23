@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <img
-        src="/images/profile.jpg"
+        src="images/profile.jpg"
         alt="Tanmay Singh"
         className="sidebar-img"
       />
@@ -20,7 +20,7 @@ const Sidebar = () => {
 
         {/* Resume opens PDF in a new tab */}
         <a
-          href="/resume/resume.pdf"
+          href="resume/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 underline"
