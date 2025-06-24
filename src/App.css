@@ -16,18 +16,23 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
-  height: 100vh;
-  background: #f8f9fa;
-  padding: 30px 20px;
-  text-align: center;
+  width: 260px;               /* Fixed width */
+  height: 100vh;              /* Full height */
+  background: #f8f9fa;        /* Light background from Code-2 */
+  color: #212529;             /* Text color for light background */
+  padding: 30px 20px;         /* Padding from Code-2 */
+  text-align: center;         /* Center align text */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  overflow: hidden;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* From Code-1 */
   z-index: 1000;
+  overflow-y: auto;           /* Allow scroll if needed */
+  flex-shrink: 0;             /* Prevent shrinking */
 }
+
+
 
 .sidebar-img {
   width: 120px;

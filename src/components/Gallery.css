@@ -52,3 +52,14 @@
 .gallery-image:hover {
   transform: scale(1.05);
 }
+
+.gallery-photo {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gallery-photo.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
